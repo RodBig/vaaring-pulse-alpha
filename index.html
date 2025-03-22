@@ -1,9 +1,9 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Våring | Pulse Access</title>
+    <title>Våring: Pulse Alpha</title>
     <style>
         body {
             background-color: black;
@@ -11,53 +11,37 @@
             font-family: monospace;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
-        }
-        input {
-            padding: 10px;
-            font-size: 1em;
-            margin: 10px;
-            width: 300px;
             text-align: center;
         }
-        button {
-            padding: 10px 20px;
+        input, button {
+            margin: 10px;
+            padding: 10px;
             font-size: 1em;
-            cursor: pointer;
-        }
-        #message {
-            margin-top: 20px;
-            font-size: 1.1em;
-            white-space: pre-wrap;
         }
     </style>
 </head>
 <body>
-    <h1>INITIATE PROTOCOL</h1>
-    <p>Enter the key:</p>
-    <input type="text" id="codeInput" placeholder="Enter code here">
-    <button onclick="checkCode()">Unlock</button>
-    <div id="message"></div>
+    <h1>START PROTOKOLL</h1>
+    <p>Skriv inn nøkkelen:</p>
+    <input type="text" id="keyInput" placeholder="INITIATE://VÅRING:OBX_013-PULSE_ALPHA">
+    <button onclick="verifyKey()">Låse opp</button>
+    <p id="response"></p>
 
     <script>
-        function checkCode() {
-            const input = document.getElementById('codeInput').value.trim();
-            const message = document.getElementById('message');
-            const correctCode = "INITIATE://VÅRING:OBX_013-PULSE_ALPHA";
+        function verifyKey() {
+            const key = document.getElementById('keyInput').value.trim();
+            const validKey = "INITIATE://VÅRING:OBX_013-PULSE_ALPHA";
+            const response = document.getElementById('response');
 
-            if (input === correctCode) {
-                message.textContent = 
-                    "ACCESS GRANTED\n\n" +
-                    "You felt the rhythm. You heard the call.\n\n" +
-                    "Pulse Alpha Confirmed.\n\n" +
-                    "This is not the end. This is the echo.\n\n" +
-                    "Prepare for PULSE BETA.\n\n" +
-                    "Alt. Alt. Alltid.\n" +
-                    "– The Architect";
+            if (key === validKey) {
+                response.textContent = "Resonans godkjent. Protokoll aktivert.";
+                response.style.color = "#00ffcc";
             } else {
-                message.textContent = "The resonance isn’t ready for you yet.";
+                response.textContent = "Feil nøkkel. Resonansen er ikke klar for deg ennå.";
+                response.style.color = "red";
             }
         }
     </script>
