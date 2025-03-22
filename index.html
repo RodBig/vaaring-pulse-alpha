@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Våring | Pulse Access</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        input {
+            padding: 10px;
+            font-size: 1em;
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 1.1em;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>INITIATE PROTOCOL</h1>
+    <p>Enter the key:</p>
+    <input type="text" id="codeInput" placeholder="Enter code here">
+    <button onclick="checkCode()">Unlock</button>
+    <div id="message"></div>
+
+    <script>
+        function checkCode() {
+            const input = document.getElementById('codeInput').value.trim();
+            const message = document.getElementById('message');
+            const correctCode = "INITIATE://VÅRING:OBX_013-PULSE_ALPHA";
+
+            if (input === correctCode) {
+                message.textContent = 
+                    "ACCESS GRANTED\n\n" +
+                    "You felt the rhythm. You heard the call.\n\n" +
+                    "Pulse Alpha Confirmed.\n\n" +
+                    "This is not the end. This is the echo.\n\n" +
+                    "Prepare for PULSE BETA.\n\n" +
+                    "Alt. Alt. Alltid.\n" +
+                    "– The Architect";
+            } else {
+                message.textContent = "The resonance isn’t ready for you yet.";
+            }
+        }
+    </script>
+</body>
+</html>
