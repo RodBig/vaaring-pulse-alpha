@@ -1,49 +1,49 @@
-
 <!DOCTYPE html>
-<html lang="no">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Våring: Pulse Alpha</title>
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: monospace;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        input, button {
-            margin: 10px;
-            padding: 10px;
-            font-size: 1em;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>START PROTOKOLL</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: monospace;
+      text-align: center;
+      margin-top: 100px;
+    }
+    input, button {
+      margin: 10px;
+      padding: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <h1>START PROTOKOLL</h1>
-    <p>Skriv inn nøkkelen:</p>
-    <input type="text" id="keyInput" placeholder="INITIATE://VÅRING:OBX_013-PULSE_ALPHA">
-    <button onclick="verifyKey()">Låse opp</button>
-    <p id="response"></p>
+  <h1>START PROTOKOLL</h1>
+  <p>Skriv inn nøkkelen:</p>
+  <input id="keyInput" type="text" size="40">
+  <br>
+  <button onclick="checkKey()">Låse opp</button>
+  <p id="message"></p>
 
-    <script>
-        function verifyKey() {
-            const key = document.getElementById('keyInput').value.trim();
-            const validKey = "INITIATE://VÅRING:OBX_013-PULSE_ALPHA";
-            const response = document.getElementById('response');
+  <script>
+    function checkKey() {
+      const key = document.getElementById("keyInput").value.trim();
+      const message = document.getElementById("message");
 
-            if (key === validKey) {
-                response.textContent = "Resonans godkjent. Protokoll aktivert.";
-                response.style.color = "#00ffcc";
-            } else {
-                response.textContent = "Feil nøkkel. Resonansen er ikke klar for deg ennå.";
-                response.style.color = "red";
-            }
-        }
-    </script>
+      if (key === "INITIATE://VÅRING:OBX_013-PULSE_ALP") {
+        message.style.color = "white";
+        message.innerText = "TILGANG GITT\n\nDu følte rytmen. Du hørte ropet.\n\nPulse Alpha bekreftet.\nDette er ikke slutten. Dette er ekkoet.\nForbered deg på PULSE BETA.\n\nAlt. Alt. Alltid.\n– Arkitekten";
+      } else if (key === "INITIATE://VÅRING:OBX_021-PULSE_BETA+") {
+        message.style.color = "white";
+        message.innerText = "PULSE BETA AKTIVERT\n\nThe ice cracked.\nThe echoes aligned.\nYou were never just listening—\nyou were the frequency.\n\nThe next wave begins now.\n\nAlt. Alt. Alltid.\n– Arkitekten";
+      } else {
+        message.style.color = "red";
+        message.innerText = "Feil nøkkel. Resonansen er ikke klar for deg ennå.";
+      }
+    }
+  </script>
 </body>
 </html>
